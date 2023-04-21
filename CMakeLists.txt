@@ -12,9 +12,10 @@ include(FetchContent)
 include (FetchContent)
 FetchContent_Declare(stackapi
     GIT_REPOSITORY https://github.com/LunarWatcher/stackapi.cpp)
-FetchContent_MakeAvailable(stackapi)
 FetchContent_Declare(stackchat
     GIT_REPOSITORY https://github.com/LunarWatcher/stackchat.cpp)
+
+FetchContent_MakeAvailable(stackapi)
 FetchContent_MakeAvailable(stackchat)
 
 add_subdirectory(src)
