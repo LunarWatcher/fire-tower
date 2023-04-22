@@ -1,0 +1,21 @@
+{
+    "email": "email@example.com",
+    "password": "1234",
+    "apiAuth": "",
+    "rooms": [
+        {
+            "site": "stackoverflow",
+            "rooms": [
+                1, 244740
+            ]
+        }
+    ],
+    "sudo": [
+        {
+            "site": "stackoverflow",
+            "users": [
+                6296561
+            ]
+        }
+    ]
+}

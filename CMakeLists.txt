@@ -19,14 +19,10 @@ FetchContent_MakeAvailable(stackapi)
 FetchContent_MakeAvailable(stackchat)
 
 add_subdirectory(src)
-#add_subdirectory(tests)
 
 add_custom_target(run
     COMMAND fire-tower
     DEPENDS fire-tower
-    COMMENT "Run fire-tower")
-#add_custom_target(test
-    #COMMAND tests
-    #DEPENDS tests
-    #COMMENT "Test fire-tower")
+    COMMENT "Run fire tower")
+
 # vim:ft=cmake

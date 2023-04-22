@@ -3,6 +3,7 @@
 
 # Custom
 build/
+fire-tower.json
 
 # Borrowed from https://github.com/github/.gitignore {{{
 
