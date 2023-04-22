@@ -5,6 +5,7 @@ set (SOURCE_FILES
     
     fire-tower/chat/ChatProcessor.cpp
     fire-tower/chat/commands/StartBurnCommand.cpp
+    fire-tower/chat/commands/FunCommands.cpp
 
     fire-tower/api/APIProcessor.cpp
 )

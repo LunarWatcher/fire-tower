@@ -11,11 +11,13 @@ namespace firetower {
 
 class APIProcessor {
 private:
+    static std::shared_ptr<spdlog::logger> logger;
+    
     stackapi::StackAPI api {
         {
             .apiKey{API_KEY},
-                .site{"stackoverflow"},
-                .userAgent{""}
+            .site{"stackoverflow"},
+            .userAgent{"FireTower/git (+https://github.com/LunarWatcher/fire-tower)"}
         }
     };
 

@@ -1,4 +1,6 @@
 #include "FireTower.hpp"
+#include "fire-tower/api/APIProcessor.hpp"
+#include "fire-tower/chat/ChatProcessor.hpp"
 
 #include <fstream>
 #include <iostream>
@@ -23,8 +25,10 @@ FireTower::FireTower() {
 
 void FireTower::run() {
     logger->info("Starting fire tower...");
+    ChatProcessor chatProcessor(conf);
+    APIProcessor apiProcessor(chatProcessor.chat, conf);
 
-
+    apiProcessor.run();
 }
 
 }
