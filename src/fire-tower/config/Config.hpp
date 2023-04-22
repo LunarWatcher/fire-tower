@@ -1,5 +1,6 @@
 #pragma once
 
+#include "stackchat/chat/ChatEvent.hpp"
 #include "stackchat/rooms/StackSite.hpp"
 #include <vector>
 #include <map>
@@ -37,6 +38,15 @@ struct Config {
         rooms,
         sudo
     );
+
+    bool isSuperUser(const stackchat::StackSite& site, const stackchat::ChatEvent& ev) {
+        for (auto& [site_, users] : sudo) {
+            if (site_ == site) {
+                return std::find(users.begin(), users.end(), ev.user_id) != users.end();
+            }
+        }
+        return false;
+    }
 };
 
 }

@@ -14,9 +14,13 @@ FetchContent_Declare(stackapi
     GIT_REPOSITORY https://github.com/LunarWatcher/stackapi.cpp)
 FetchContent_Declare(stackchat
     GIT_REPOSITORY https://github.com/LunarWatcher/stackchat.cpp)
+FetchContent_Declare(sqlite
+    GIT_REPOSITORY https://github.com/SRombauts/SQLiteCpp
+    GIT_TAG 3.2.1)
 
 FetchContent_MakeAvailable(stackapi)
 FetchContent_MakeAvailable(stackchat)
+FetchContent_MakeAvailable(sqlite)
 
 add_subdirectory(src)
 

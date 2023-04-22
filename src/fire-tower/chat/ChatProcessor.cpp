@@ -1,5 +1,10 @@
 #include "ChatProcessor.hpp"
 #include "fire-tower/chat/commands/FunCommands.hpp"
+#include "fire-tower/chat/commands/StartBurnCommand.hpp"
+#include "stackchat/chat/Command.hpp"
+#include "stackchat/chat/MultiLevelCommand.hpp"
+
+#include <map>
 
 namespace firetower {
 
@@ -16,6 +21,11 @@ ChatProcessor::ChatProcessor(Config& conf)
         conf(conf) {
     
     chat.registerCommand("alive", std::make_shared<AliveCommand>());
+    chat.registerCommand("burn", std::make_shared<stackchat::MultiLevelCommand>(
+        std::map<std::string, std::shared_ptr<stackchat::Command>> {
+            {"start", std::make_shared<StartBurnCommand>(conf)}
+        }
+    ));
     for (auto& [site, rooms] : conf.rooms) {
         for (auto& room : rooms) {
             chat.join(site, room);
