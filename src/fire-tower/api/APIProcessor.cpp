@@ -1,9 +1,10 @@
 #include "APIProcessor.hpp"
+#include "fire-tower/data/Database.hpp"
 
 namespace firetower {
 std::shared_ptr<spdlog::logger> APIProcessor::logger = spdlog::stdout_color_mt("APIProcessor");
 
-APIProcessor::APIProcessor(stackchat::StackChat& chat, Config& conf) : chat(chat), conf(conf) {
+APIProcessor::APIProcessor(stackchat::StackChat& chat, Config& conf, Database& db) : chat(chat), conf(conf), db(db) {
     if (!conf.apiAuth.empty()) {
         api.conf.auth = conf.apiAuth;
     }

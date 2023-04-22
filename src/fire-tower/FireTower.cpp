@@ -1,6 +1,7 @@
 #include "FireTower.hpp"
 #include "fire-tower/api/APIProcessor.hpp"
 #include "fire-tower/chat/ChatProcessor.hpp"
+#include "fire-tower/data/Database.hpp"
 
 #include <fstream>
 #include <iostream>
@@ -24,9 +25,11 @@ FireTower::FireTower() {
 }
 
 void FireTower::run() {
+    logger->info("Loading database...");
+    Database db;
     logger->info("Starting fire tower...");
-    ChatProcessor chatProcessor(conf);
-    APIProcessor apiProcessor(chatProcessor.chat, conf);
+    ChatProcessor chatProcessor(conf, db);
+    APIProcessor apiProcessor(chatProcessor.chat, conf, db);
 
     apiProcessor.run();
 }

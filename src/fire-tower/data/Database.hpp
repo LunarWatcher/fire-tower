@@ -11,7 +11,7 @@ namespace firetower {
 
 class Database {
 private:
-    SQLite::Database db{"fire-tower.db"};
+    SQLite::Database db{"fire-tower.db", SQLite::OPEN_CREATE | SQLite::OPEN_READWRITE};
 public:
     std::mutex lock;
 

@@ -1,6 +1,7 @@
 #include "ChatProcessor.hpp"
 #include "fire-tower/chat/commands/FunCommands.hpp"
 #include "fire-tower/chat/commands/StartBurnCommand.hpp"
+#include "fire-tower/data/Database.hpp"
 #include "stackchat/chat/Command.hpp"
 #include "stackchat/chat/MultiLevelCommand.hpp"
 
@@ -8,7 +9,7 @@
 
 namespace firetower {
 
-ChatProcessor::ChatProcessor(Config& conf) 
+ChatProcessor::ChatProcessor(Config& conf, Database& db) 
     : 
         chat {
             {
@@ -18,7 +19,7 @@ ChatProcessor::ChatProcessor(Config& conf)
                 .userAgent{"FireTower/git (+https://github.com/LunarWatcher/fire-tower)"},
             }
         },
-        conf(conf) {
+        conf(conf), db(db) {
     
     chat.registerCommand("alive", std::make_shared<AliveCommand>());
     chat.registerCommand("burn", std::make_shared<stackchat::MultiLevelCommand>(

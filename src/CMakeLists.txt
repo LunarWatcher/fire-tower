@@ -2,7 +2,7 @@ set (SOURCE_FILES
     fire-tower/Main.cpp
 
     fire-tower/FireTower.cpp
-    fire-tower/data/Database.hpp
+    fire-tower/data/Database.cpp
     
     fire-tower/chat/ChatProcessor.cpp
     fire-tower/chat/commands/StartBurnCommand.cpp
