@@ -23,8 +23,5 @@ ChatProcessor::ChatProcessor(Config& conf)
     }
 }
 
-std::shared_ptr<ChatProcessor> createProcessor() {
-
-}
 
 }
